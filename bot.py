@@ -19,10 +19,7 @@ from ultralytics import YOLO
 nest_asyncio.apply()
 
 # --- КЛЮЧИ ---
-TELEGRAM_TOKEN = "ВАШ_ТОКЕН_ИЗ_BOTFATHER"
-GEMINI_API_KEY = "ВАШ_КЛЮЧ_GEMINI"
-WEATHER_API_KEY = "ВАШ_КЛЮЧ_ПОГОДЫ"
-ADMIN_ID = 123456789
+
 
 model = YOLO(MODEL_PATH)
 ai_client = genai.Client(api_key=GEMINI_API_KEY)
@@ -40,7 +37,7 @@ def get_weather():
 
 # --- 2. ФУНКЦИЯ ЛОГИРОВАНИЯ (CSV) ---
 def log_to_csv(user_id, disease, conf):
-    file_path = '/content/statistics.csv'
+    file_path = 'statistics.csv'
     file_exists = os.path.isfile(file_path)
     with open(file_path, 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
@@ -116,7 +113,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lang = context.user_data.get('lang', 'ru')
     msg = await update.message.reply_text("🔎 Анализирую изображение и погодные условия...")
 
-    file_path = f"/content/temp_crop_{update.message.message_id}.jpg"
+    file_path = f"/temp_crop_{update.message.message_id}.jpg"
     photo_obj = update.message.photo[-1]
 
     try:

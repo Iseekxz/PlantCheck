@@ -19,7 +19,11 @@ from ultralytics import YOLO
 nest_asyncio.apply()
 
 # --- КЛЮЧИ ---
-
+TELEGRAM_TOKEN = ""
+GEMINI_API_KEY = ""
+WEATHER_API_KEY = ""
+ADMIN_ID = 123456789
+MODEL_PATH = "best.pt"
 
 model = YOLO(MODEL_PATH)
 ai_client = genai.Client(api_key=GEMINI_API_KEY)

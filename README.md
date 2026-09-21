@@ -135,7 +135,7 @@ pip install -r requirements.txt
 ### 4. Запуск бота
 
 ```bash
-python bot.py
+python bot.py или py bot.py
 
 ```
 
